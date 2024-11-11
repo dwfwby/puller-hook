@@ -1,0 +1,12 @@
+[Unit]
+Description=Check pull every second
+
+[Service]
+Type=simple
+ExecStart=<path to puller-hook, example: /root/puller-hook.sh> <path to local repo, example: /root/telegram> https://<access_token>@github.com/<username>/<repository>.git
+Restart=always
+RestartSec=1
+StartLimitInterval=0
+
+[Install]
+WantedBy=multi-user.target
